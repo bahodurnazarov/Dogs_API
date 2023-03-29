@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+  </style>
+  <div class="container">
+    <section class="mx-auto my-5" style="max-width: 25rem;">
+      <div class="card" style="width: 25rem; ">
+        <div class="card-body">
+          <h2 class="card-title text-center">CHOOSE A PUPPY</h2>
+          <a href="/dog" class="btn btn-outline-light" style="position: absolute;
+          left: 20rem;
+          border: 3px solid green;"><img
+              src="data:image/png;base64,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"
+              alt="update button" style="max-width: 1.4rem;"></a>
+          <div>
+            <h5>Name: {{.Name}}</h5>
+            <h5>Age: {{.Age}}</h5>
+          </div>
+        </div>
+        <img src="{{.AppVersion}}" class="card-img-top" alt="Card image cap" style=" max-height: 25rem;">
+      </div>
+  </div>
+  </div>
+
+  </section>
+  </div>
+
+
+</body>
+
+</html>
