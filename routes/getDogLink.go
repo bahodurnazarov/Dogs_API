@@ -5,10 +5,11 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-
+	d "github.com/bahodurnazarov/Dogs_API/db"
 	"github.com/bahodurnazarov/Dogs_API/models"
 	lg "github.com/bahodurnazarov/Dogs_API/utils"
 	"github.com/gin-gonic/gin"
+	_ "github.com/lib/pq" // add this
 )
 
 func getDogLink(c *gin.Context) {
@@ -33,6 +34,13 @@ func getDogLink(c *gin.Context) {
 		AppVersion: appVersion,
 		Name:       dogName,
 		Age:        dogAge,
+	}
+	db := d.ConnDB()
+	if data.AppVersion != "" {
+		_, err := db.Exec("INSERT into dogs VALUES ($1, $2, $3)", data.Name, data.Age, data.AppVersion)
+		if err != nil {
+			lg.Errl.Fatalf("An error occured while executing query: %v", err)
+		}
 	}
 
 	err = tmpl.Execute(c.Writer, data)
